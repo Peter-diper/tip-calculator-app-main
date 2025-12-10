@@ -15,22 +15,81 @@
     <title>Tip calculator app</title>
   </head>
   <body>
-    <div class="form--controler">
-      <div class="input--title">
-        <label class="total--people" for="total--person"
-          >Number of People</label
-        >
-        <span class="error--message">Can’t be zero</span>
+    <main class="container">
+      <h1>
+        S P L T<br />
+        T T E R
+      </h1>
+      <div class="card">
+        <form novalidate class="card--header">
+          <!-- bill -->
+          <div class="form--controler">
+            <div class="input--title">
+              <label class="total--people" for="total--person">Bill</label>
+            </div>
+            <div class="input--wrapper">
+              <input
+                type="number"
+                class="form--input"
+                placeholder="0"
+                id="total--person"
+              />
+              <img src="./assets/images/icon-dollar.svg" alt="money icon" />
+            </div>
+          </div>
+          <!-- selcet tip -->
+          <section class="Tip--selectin">
+            <h2 class="total--people">Select Tip %</h2>
+            <div class="tip--wrapper">
+              <button type="submit" class="btn btn--primary">5%</button>
+
+              <button type="submit" class="btn btn--primary">10%</button>
+
+              <button type="submit" class="btn btn--secondery">15%</button>
+
+              <button type="submit" class="btn btn--primary">25%</button>
+
+              <button type="submit" class="btn btn--primary">50%</button>
+
+              <button type="submit" class="btn">Custom</button>
+            </div>
+          </section>
+          <!-- split people -->
+          <div class="form--controler">
+            <div class="input--title">
+              <label class="total--people" for="total--person"
+                >Number of People</label
+              >
+              <span class="error--message">Can’t be zero</span>
+            </div>
+            <div class="input--wrapper">
+              <input
+                type="number"
+                class="form--input"
+                placeholder="0"
+                id="total--person"
+              />
+              <img src="./assets/images/icon-person.svg" alt="" />
+            </div>
+          </div>
+        </form>
+        <footer class="card--footer">
+          <div class="card--content">
+            <div class="content--header">
+              <!-- price -->
+              <div class="content--waper">
+                <p class="title">Tip Amount <span>/ person</span></p>
+                <span class="price" id="tip-amount">$0.00</span>
+              </div>
+              <div class="content--waper">
+                <p class="title">Total <span>/ person</span></p>
+                <span class="price" id="total--price">$0.00</span>
+              </div>
+            </div>
+            <button class="btn btn--secondery" type="reset">RESET</button>
+          </div>
+        </footer>
       </div>
-      <div class="input--wrapper">
-        <input
-          type="number"
-          class="form--input"
-          placeholder="0"
-          id="total--person"
-        />
-        <img src="./assets/images/icon-person.svg" alt="" />
-      </div>
-    </div>
+    </main>
   </body>
 </html>
