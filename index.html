@@ -18,21 +18,21 @@
     <main class="container">
       <h1>
         S P L T<br />
-        T T E R
+        T T E R <br />
       </h1>
-      <div class="card">
-        <form novalidate class="card--header">
+      <form novalidate class="card">
+        <div class="card--header">
           <!-- bill -->
           <div class="form--controler">
             <div class="input--title">
               <label class="total--people" for="total--person">Bill</label>
             </div>
-            <div class="input--wrapper">
+            <div class="input--wrapper" data-id="bill">
               <input
                 type="number"
                 class="form--input"
                 placeholder="0"
-                id="total--person"
+                id="total--bill"
               />
               <img src="./assets/images/icon-dollar.svg" alt="money icon" />
             </div>
@@ -41,17 +41,27 @@
           <section class="Tip--selectin">
             <h2 class="total--people">Select Tip %</h2>
             <div class="tip--wrapper">
-              <button type="submit" class="btn btn--primary">5%</button>
+              <button type="submit" value=".05" class="btn btn--primary">
+                5%
+              </button>
 
-              <button type="submit" class="btn btn--primary">10%</button>
+              <button type="submit" value=".1" class="btn btn--primary">
+                10%
+              </button>
 
-              <button type="submit" class="btn btn--secondery">15%</button>
+              <button type="submit" value=".15" class="btn btn--primary">
+                15%
+              </button>
 
-              <button type="submit" class="btn btn--primary">25%</button>
+              <button type="submit" value=".25" class="btn btn--primary">
+                25%
+              </button>
 
-              <button type="submit" class="btn btn--primary">50%</button>
+              <button type="submit" value=".50" class="btn btn--primary">
+                50%
+              </button>
 
-              <button type="submit" class="btn">Custom</button>
+              <input type="number" placeholder="custom" class="btn--custom" />
             </div>
           </section>
           <!-- split people -->
@@ -62,7 +72,7 @@
               >
               <span class="error--message">Can’t be zero</span>
             </div>
-            <div class="input--wrapper">
+            <div class="input--wrapper" data-id="people--section">
               <input
                 type="number"
                 class="form--input"
@@ -72,24 +82,26 @@
               <img src="./assets/images/icon-person.svg" alt="" />
             </div>
           </div>
-        </form>
+        </div>
         <footer class="card--footer">
           <div class="card--content">
             <div class="content--header">
               <!-- price -->
-              <div class="content--waper">
+              <div class="content--wrapper">
                 <p class="title">Tip Amount <span>/ person</span></p>
                 <span class="price" id="tip-amount">$0.00</span>
               </div>
-              <div class="content--waper">
+              <div class="content--wrapper">
                 <p class="title">Total <span>/ person</span></p>
                 <span class="price" id="total--price">$0.00</span>
               </div>
             </div>
-            <button class="btn btn--secondery" type="reset">RESET</button>
+            <button class="btn reset--btn" type="reset">RESET</button>
           </div>
         </footer>
-      </div>
+      </form>
     </main>
+    <footer class="footer">created by peter :)</footer>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
