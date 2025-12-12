@@ -8,7 +8,6 @@ const tipPerPerson = document.querySelector("#tip-amount");
 const PricePerPerson = document.querySelector("#total--price");
 const errorInputMsg = document.querySelector(".error--message");
 const inputWrappers = document.querySelectorAll(".input--wrapper");
-const activeBtn = document.querySelector(".active");
 
 const inputs = [totalPepole, totalBill];
 console.log(inputs);
@@ -20,14 +19,26 @@ window.addEventListener("DOMContentLoaded", () => {
     tipPerPerson.textContent = "$0.00";
     PricePerPerson.textContent = "$0.00";
     resetBtn.classList.remove("btn--secondery");
-    totalPepole.value = "0";
-    totalBill.value = "0";
+    totalPepole.value = "";
+    totalBill.value = "";
+
+    const tipButtons = document.querySelectorAll(".tip-button");
+    tipButtons.forEach((btn) => btn.classList.remove("active"));
+
+    errorInputMsg.style.display = "none";
+    inputWrappers.forEach((input) => {
+      input.classList.remove("input--failed");
+    });
+
+    tipsOptions.forEach((btn) => {
+      btn.classList.remove("active");
+    });
   });
 });
 
 // functions
-function startForm(form) {
-  form.addEventListener("submit", handeler);
+function startForm(selectedForm) {
+  selectedForm.addEventListener("submit", handeler);
   tipsOptions.forEach((btn) => {
     btn.addEventListener("click", calcAmount);
   });
@@ -35,7 +46,7 @@ function startForm(form) {
 
 function calculateTotal() {
   totalBill.addEventListener("input", (e) => {
-    let totalPersonValue = +totalPepole.value === 0 ? 1 : +totalPepole.value;
+    const totalPersonValue = +totalPepole.value === 0 ? 1 : +totalPepole.value;
 
     const totalBillValue = +e.target.value;
     // validation
@@ -60,9 +71,13 @@ function calculateTotal() {
     // validation
     const validation = {
       tipValue:
-        (typeof totalPersonValue === "number" && totalPersonValue > 0) || NaN,
+        typeof totalPersonValue === "number" && totalPersonValue > 0
+          ? totalPersonValue // valid number, pass it through
+          : NaN, // invalid, mark as NaN for error handling
       billValue:
-        (typeof totalBillValue === "number" && totalBillValue > 0) || NaN,
+        typeof totalBillValue === "number" && totalBillValue > 0
+          ? totalBillValue
+          : NaN,
     };
 
     if (!validation.billValue || !validation.tipValue) {
