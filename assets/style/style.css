@@ -110,7 +110,7 @@ h1 span {
   border-radius: 0.5rem;
 }
 
-.btn--secondery { 
+.btn--secondery {
   background-color: var(--color-green-400);
   color: var(--color-green-900);
 }
@@ -125,6 +125,10 @@ h1 span {
 .btn--primary:hover,
 .btn--custom:hover {
   background-color: var(--color-green-400);
+  color: var(--color-green-900);
+}
+.btn.active {
+  background-color: var(--color-green-200);
   color: var(--color-green-900);
 }
 
@@ -295,7 +299,8 @@ h1 span {
     padding: var(--space-400) var(--space-1000);
   }
   .container {
-    max-width: 90vw;
+    max-width: 105rem;
+    padding: 5rem;
   }
   .tip--wrapper {
     grid-template-columns: repeat(3, 1fr);
@@ -313,9 +318,6 @@ h1 span {
   }
 }
 @media screen and (min-width: 80rem) {
-  .container {
-    max-width: 115.2rem;
-  }
 }
 
 main {
